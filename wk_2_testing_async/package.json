@@ -1,0 +1,19 @@
+{
+  "name": "wk_2_testing_async",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "debug": "node --inspect-brk index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.5.0"
+  }
+}
