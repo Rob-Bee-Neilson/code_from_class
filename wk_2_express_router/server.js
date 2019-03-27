@@ -1,12 +1,27 @@
 const express = require('express')
 const server = express()
+const exphbs  = require('express-handlebars');
 
 const countriesRoutes = require('./routes/countries')
+
+server.engine('hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+server.set('view engine', 'hbs');
+
+server.use(express.urlencoded({extended: true}))
 
 server.use('/countries', countriesRoutes)
 
 server.get('/', (req,res) => {
   res.send('OK')
+})
+
+server.get('/form', (req,res) => {
+  res.render('form', {})
+})
+
+server.post('/form', (req,res) => {
+  console.log(req.body)
+  res.redirect('/form')
 })
 
 // server.get('/countries', (req,res) => {
