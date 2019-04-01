@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const commands = require('./commands')
+
+const cmd = process.argv[2]
+
+switch (cmd) {
+  case 'list':
+    commands.list()
+    break
+
+  case 'add':
+    let task = process.argv[3]
+    commands.addTodo(task).then(() => {
+      console.log('Task added')
+    })
+    break
+
+  default:
+    console.log(`I don't understand that command: ${cmd}`)
+}
