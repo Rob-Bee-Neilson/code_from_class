@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+
 import {Greeter} from './'
 
 export class GreeterButtons extends Component {
@@ -25,7 +27,6 @@ export class GreeterButtons extends Component {
     console.log(this.state)
     return (
       <div>
-        <h1>React development has begun!</h1>
         <a href='http://google.com' onClick={this.handleClick.bind(this)}>Google</a>
         <button 
           onClick={this.toggleGreeter.bind(this)}
@@ -33,6 +34,8 @@ export class GreeterButtons extends Component {
           onMouseOut={() => this.setState({toggleLabel: 'Toggle'})}
         >{this.state.toggleLabel}</button>
         {this.state.showGreeter && <Greeter greeting='hello'/>}
+
+        <Link to='/bananas'>Hungry?</Link>
       </div>
     )
   }
