@@ -7,9 +7,7 @@
   "author": "EDA",
   "license": "ISC",
   "scripts": {
-    "client": "webpack-dev-server --hot --inline",
-    "dev": "node server & webpack --watch",
-    "server": "node server",
+    "dev": "nodemon server & webpack --watch",
     "start": "webpack && node server",
     "test": "jest --watchAll"
   },
@@ -30,6 +28,9 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "knex": "^0.16.5",
+    "nodemon": "^1.18.11",
+    "sqlite3": "^4.0.6",
     "superagent": "^5.0.2"
   },
   "devDependencies": {
