@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1",
     "superagent": "^5.0.2"
   },
   "devDependencies": {

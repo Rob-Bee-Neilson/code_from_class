@@ -7,7 +7,7 @@ function AnimalList (props) {
     <ul>
       {props.animals.map(animal => {
         return (
-          <Animal key={animal.id} animal={animal} deleteAnimal={props.deleteAnimal}/>
+          <Animal key={animal.id} animal={animal}/>
         )
       })}
     </ul>
