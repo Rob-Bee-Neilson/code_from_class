@@ -14,8 +14,24 @@ function getVehiclesByCustomer(customerId) {
     return db('vehicles')
     .join('customers', 'vehicles.customer_id', '=', 'customers.id')
     .where('customer_id', '=', customerId)
-    .select()
+    .select('*', 'vehicles.id AS vehicle_id', 'customers.id AS customer_id', 'customers.name AS customer_name')
+    .then(vehicles => {
+        return vehicles.map(vehicle => {
+            delete vehicle.id
+            return vehicle
+        })
+    })
 }
+
+// [{
+//     id: 3,
+//     name: 'skjdflsd',
+//     plate: '124324',
+//     customer: {
+//         name: 'Robbie'
+//     }
+// }]
+
 
 module.exports = {
     getAllVehicles,
