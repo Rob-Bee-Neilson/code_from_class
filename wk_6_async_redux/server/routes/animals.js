@@ -5,9 +5,12 @@ const db = require('../db/animals')
 // routes start with /api/v1/animals
 
 router.get('/', (req, res) => {
+  console.log('Got a request for the animals')
   db.getAnimals()
     .then(animals => {
-      res.json(animals)
+      setTimeout(() => {
+        res.json(animals)
+      }, 3000)
     })
 })
 

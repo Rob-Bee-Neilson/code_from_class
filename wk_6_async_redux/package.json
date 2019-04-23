@@ -30,6 +30,9 @@
     "express": "^4.16.4",
     "knex": "^0.16.5",
     "nodemon": "^1.18.11",
+    "react-redux": "^7.0.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "sqlite3": "^4.0.6",
     "superagent": "^5.0.2"
   },

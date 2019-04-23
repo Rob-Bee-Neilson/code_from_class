@@ -1,42 +1,26 @@
-import React from 'react'
-import request from 'superagent'
+import React, { Fragment as F } from 'react'
+import { connect } from 'react-redux'
+
+import AnimalList from './AnimalList'
+import { getAnimals, setAnimals } from '../actions'
 
 class App extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      animals: []
-    }
-  }
-
   componentDidMount () {
     console.log('componentDidMount')
-    
-    request.get('/api/v1/animals')
-      .then(res => {
-        const animals = res.body
-        this.setState({ animals: animals })
-      })
+
+    this.props.dispatch(getAnimals())
   }
 
   render () {
     console.log('render')
 
     return (
-      <React.Fragment>
+      <F>
         <h1>React development has begun!</h1>
-        <ul>
-          {this.state.animals.map(animal => {
-            return (
-              <li key={animal.name}>{animal.name}: {animal.nouns.join(',')}</li>
-            )
-          })}
-        </ul>
-      </React.Fragment>
+        <AnimalList />
+      </F>
     )
   }
 }
 
-export default App
-
+export default connect()(App)
